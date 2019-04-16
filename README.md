@@ -1,5 +1,38 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About this boiler plate
+
+I used to always create the same files at each new app initialization. That's why I've decided to create this simple boiler plate for a react app that relies on :
+* Create react app 
+* Ant Design
+* Firebase
+* React Router
+
+I've implemented the following mechanisms
+* Simple routes management with React Router
+* Basic templates for private pages (home page here) and public pages (signin page)
+* Signin form that allows users to authenticate with a 
+* Routes protection with an authorization mechanism that checks if user is authenticated
+* Sign out function in the header of any private page template
+
+In order to be used with a Firebase account, a .env file must be created at root. This file must contain the following variables :
+
+REACT_APP_PROD_API_KEY="insert_your_key_here"
+REACT_APP_PROD_AUTH_DOMAIN="domain_url"
+REACT_APP_PROD_DATABASE_URL="db_url"
+REACT_APP_PROD_PROJECT_ID="id_for_project"
+REACT_APP_PROD_STORAGE_BUCKET="storage_bucket"
+REACT_APP_PROD_MESSAGING_SENDER_ID=yourID
+
+REACT_APP_DEV_API_KEY="insert_your_key_here"
+REACT_APP_DEV_AUTH_DOMAIN="domain_url"
+REACT_APP_DEV_DATABASE_URL="db_url"
+REACT_APP_DEV_PROJECT_ID="id_for_project"
+REACT_APP_DEV_STORAGE_BUCKET="storage_bucket"
+REACT_APP_DEV_MESSAGING_SENDER_ID=yourID
+
+We assume that you have distinct Firebase projects for development and production. The .env is ignored by git
+
 ## Available Scripts
 
 In the project directory, you can run:

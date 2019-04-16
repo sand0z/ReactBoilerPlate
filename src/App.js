@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import * as ROUTES from './constants/routes'
+import * as PAGES from './components/Pages'
+
+import { LocaleProvider } from 'antd'
+import fr_FR from 'antd/lib/locale-provider/fr_FR'
+
+import { withAuthentication } from './services/sessions'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <LocaleProvider locale={fr_FR}>
+          <Router>
+            <Switch>
+              <Route exact path={ROUTES.HOME} component={PAGES.Home} />
+              <Route exact path={ROUTES.SIGNIN} component={PAGES.Signin} />
+            </Switch>
+          </Router>
+        </LocaleProvider>
       </div>
     );
   }
 }
 
-export default App;
+export default withAuthentication(App)
